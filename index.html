@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ㅤ</title>
+    <link rel="icon" type="image/icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Fontdiner+Swanky:400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            user-select:none;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            font-family: "Fontdiner Swanky", cursive;
+        }
+        .center-button {
+            user-select:none;
+            position: absolute;
+            top: 90%;
+            left: 95%;
+            transform: translate(-50%, -50%);
+            height:50px;
+            width:150px;
+            background-color: #000;
+            box-shadow: 0 0 15px #000, 0 0 15px #000, 0 0 15px #000;
+            color: #000000;
+            font-weight: bold;
+            font-size:30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition:1.5s;
+            cursor: default;
+            font-family: "Fontdiner Swanky", cursive;
+        }
+        .center-button:hover {
+            user-select:none;
+            box-shadow: 0 0 15px #630000, 0 0 15px #630000, 0 0 15px #630000;
+            cursor: default;
+            transition:1.5s;
+            background-color: #630000;
+            font-family: "Fontdiner Swanky", cursive;
+        }
+
+        .center-button:active {
+            user-select:none;
+            cursor: default;
+            font-family: "Fontdiner Swanky", cursive;
+        }
+    </style>
+    <script>
+        // Function to disable Ctrl+U
+        function disableCtrlU(event) {
+            if (event.ctrlKey && event.key === 'u') {
+                event.preventDefault();
+            }
+        }
+
+        // Attach the event listener to the document
+        document.addEventListener('keydown', disableCtrlU);
+    </script>
+    <script>
+        // Disable right-click function
+        function disableRightClick(event) {
+            event.preventDefault();
+        }
+
+        // Attach the event listener to the document
+        document.addEventListener('contextmenu', disableRightClick);
+    </script>
+        <script>
+            // Function to disable Ctrl+Shift shortcuts
+            function disableCtrlShiftShortcuts(event) {
+                if (event.ctrlKey && event.shiftKey) {
+                    event.preventDefault();
+                }
+            }
+    
+            // Attach the event listener to the document
+            document.addEventListener('keydown', disableCtrlShiftShortcuts);
+        </script>
+    
+
+</head>
+<body>
+    <button onclick="myFunction()" class="center-button">Enter</button>
+    <script>
+        function myFunction() {
+            var myWindow = window.open("", "", "width=800,height=600");
+            myWindow.location = "https://www.youtube.com/";
+        }
+    </script>
+</body>
+</html>
