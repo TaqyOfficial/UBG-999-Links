@@ -4,6 +4,10 @@ RewriteEngine on
 RewriteCond %{THE_REQUEST} /(index|[^.]+)\.html [NC]
 RewriteRule ^ /%1 [NC,L,R]
 
+# Redirect /index to the version without .html
+RewriteCond %{THE_REQUEST} /index [NC]
+RewriteRule ^ / [NC,L,R]
+
 # Remove .html extension for other pages
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
