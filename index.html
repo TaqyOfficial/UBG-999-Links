@@ -1,13 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ㅤ</title>
-    <link rel="icon" type="image/icon" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=Fontdiner+Swanky:400&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Google</title>
+    <link rel="icon" type="icon" href="https://www.google.com/favicon.ico">
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!--MAIN CSS STUFF-->
     <style>
+
 .container {
+        position:relative;
+        justify-content:center;
+        align-items:center;
+        max-width: 2000px; /* 1500px = 4 per row, 
+                              1800px = 5 per row, 
+                              2000px = 6 per row  */
+        margin:auto;
+        padding-top:70px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .games {
+        position:relative;
+        justify-content:center;
+        align-items:center;
+        margin: 4px;
+        padding: 0px;
+        height: 181.5px;
+        width: 287.19px;
+        cursor: pointer;
+        transition: 0s;
+        border-radius:8px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        outline:none;
+        border:none;
+        text-align:center;
+        font-size:50px;
+        
+        
+        
+     
+        
+       }
+       .games:hover {
+        position:relative;
+        justify-content:center;
+        align-items:center;
+          margin: 4px;
+          padding: 0px;
+          transition: 0s;
+          border-radius:8px;
+          outline:solid;
+          outline-width:2px;
+          outline-color:var(--primary-color);
+           user-select: none;
+           -moz-user-select: none;
+           -webkit-user-drag: none;
+           -webkit-user-select: none;
+           -ms-user-select: none;
+         }
+
+         .games:active {
+        position:relative;
+        justify-content:center;
+        align-items:center;
+          margin: 4px;
+          padding: 0px;
+          transition: 0s;
+          border-radius:8px;
+          outline:solid;
+          outline-width:2px;
+          outline-color:var(--primary-color);
+           user-select: none;
+           -moz-user-select: none;
+           -webkit-user-drag: none;
+           -webkit-user-select: none;
+           -ms-user-select: none;
+         }
+       
+       html,body {
+        margin:0px;
+        padding:0px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        user-select: none;
+
+        }
+
+        header {
+        z-index: 10;
+        position: fixed;
+        display:flex;
+        width:100%;
+        height: 60px;
+        background:rgba(33, 34, 51, 0.9);
+        text-align:center;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(8px);
+           
+       }
+
+       .headertext {
+        position: relative;
+        user-select: none;
+        text-align: center;
+        font-size:45px;
+        white-space: nowrap;
+        font-weight: 300;
+       }
+
+
+
+
+       .headertext2 {
+        position: relative;
+        user-select: none;
+        text-align: center;
+        font-size:50px;
+        white-space: nowrap;
+        margin-left: 0.25em;
+        color:var(--primary-color);
+        font-family: 'Minerva';
+
+       }
+
+
+#search {
+    font-family: 'Roboto', sans-serif;
+      position:absolute;
+      right:65px;
+      outline:none;
+      border:none;
+      width:200px;
+      height:45px;
+      border-radius:50px;
+      font-size:25px;
+      padding-left:20px;
+      padding-right:50px;
+      background-color: rgb(55, 57, 82);
+      color:white;
+      font-weight: 300;
+      user-select: none;
+      text-align:left;
+      justify-self: right;
+      
+      
+  }
+
+  .about {
+      font-family: 'Roboto', sans-serif;
+      position:absolute;
+      right:10px;
+      outline:none;
+      border:none;
+      width:45px;
+      height:45px;
+      border-radius:50px;
+      font-size:30px;
+      background-color: rgb(55, 57, 82);
+      color:white;
+      font-weight: 300;
+      user-select: none;
+      text-align:center;
+      justify-self: center;   
+  }
+
+  .about:hover {
+    cursor:pointer;
+  }
+  
+
+  .fa {
+    position:absolute;
+    right:80px;
+    user-select: none;
+      text-align:left;
+      justify-self: right;
+      font-size:25px;
+      color:white;
+  }
+
+
+  #count {
+        position: absolute;
+        left:15px;
+        user-select: none;
+        text-align: left;
+        font-size:30px;
+        font-weight: 300;
+        white-space: nowrap;
+}
+
+
+  #search::placeholder {
+    color:white;
+  }
+
+
+       
+    </style>
+
+    <!--MAIN CSS STUFF-->
+
+
+    <!--TECHNICAL-->
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+@font-face {
+  font-family: 'Minerva';
+  src: url('/fonts/Minerva.otf') format('opentype'); /* Relative path to the font file */
+}
+
+
+    html::-webkit-scrollbar {
+      width:0px;
+    }
+
+  body {
+
+  background-color: #11121b;
+      color:white;
+}
+
+
+:root {
+  --primary-color:#ffffff;
+}
+
+</style>
+    <!--TECHNICAL-->
+
+
+
+
+    <!--GAME TAGS AND SEARCH STUFF HERE-->
+
+<style>
+
+.tag {
+    display: inline;
+    position:relative;
+    font-size: 18px;
+    text-align: center;
+    padding-left:5px;
+    padding-right:5px;
+    border-radius: 5px;
+    color:white;
+    font-weight: 300;
+    right:3px;
+    top:3px;
+    margin:auto;
+    margin-left:5px;
+    float:right;
+    z-index:2;
+    
+  }
+
+  .tagleft {
+    display: inline;
+    position:relative;
+    font-size: 18px;
+    text-align: center;
+    padding-left:5px;
+    padding-right:5px;
+    border-radius: 5px;
+    color:white;
+    font-weight: 300;
+    right:3px;
+    top:3px;
+    margin:auto;
+    margin-left:5px;
+    float:left;
+    
+  }
+  
+  
+  .error {
+  position: absolute;
+  top:250px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 60px;
+  display: none;
+  white-space: nowrap;
+}
+
+.hidden {
+    display:none;
+}
+
+</style>
+
+    <!--GAME TAGS AND SEARCH HERE-->
+
+
+      
+
+      <!--GIF PLAYING-->
+    <style>
+.gif {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+   top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: .05s;
+  border-radius:8px;
+  user-select: none;
+  position: absolute;
+  z-index:0;
+}
+
+.gif:hover {
+  opacity: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  position: absolute;
+  z-index:0;
+}
+
+.center {
     justify-content: center;
     align-items: center;
     display: flex;
@@ -16,94 +352,87 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+
 }
 
-        body {
-            user-select:none;
-            background-color: #000;
-            margin: 0;
-            padding: 0;
-            font-family: "Fontdiner Swanky", cursive;
-            
-        }
-        .center-button {
-           
-    margin: 20px;
-    user-select: none;
-    height: 75px;
-    width: 350px;
-    background-color: #630000;
-    box-shadow: 0 0 15px #630000, 0 0 15px #630000, 0 0 15px #630000;
-    color: #000000;
-    font-weight: bold;
-    font-size: 50px;
-    border: none;
-    border-radius: 25px;
-    transition: 0.5s;
-    cursor: default;
-    font-family: "Fontdiner Swanky", cursive;
-    /* float: left; <-- Remove this line */
+
+.btn {  
+  transition: 0s;
+  height:80px;
+  width:250px;
+  margin:10px;
+  border-radius: 50px;
+  outline:none;
+  position: relative;
+  border:none;
+  font-size: 35px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(55, 57, 82);
+  color:white;
+  font-weight: 300;
 }
 
-        .center-button:hover {
-            transform: scale(1.05);
-            user-select:none;
-            box-shadow: 0 0 15px #630000, 0 0 15px #630000, 0 0 15px #630000;
-            cursor: pointer;
-            transition:0.5s;
-            background-color: #630000;
-            font-family: "Fontdiner Swanky", cursive;
-        }
+.btn:hover {
+  transition: 0s;
+  height:80px;
+  width:250px;
+  border-radius: 50px;
+  outline:solid;
+  outline-width:2px;
+  position: relative;
+  border:none;
+  font-size: 35px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(55, 57, 82);
+  color:white;
+  font-weight: 300;
+  cursor: pointer;
+}
 
-        .center-button:active {
-            user-select:none;
-            cursor: pointer;
-            font-family: "Fontdiner Swanky", cursive;
-        }
+.purple:hover {
+    outline:solid;
+  outline-width:2px;
+  outline-color: #7967dd;
+}
+
+.red:hover {
+    outline:solid;
+  outline-width:2px;
+  outline-color: #e61414;
+}
+.blue:hover {
+    outline:solid;
+  outline-width:2px;
+  outline-color: #38b1ff;
+}
+
     </style>
-    <script>
-        // Function to disable Ctrl+U
-        function disableCtrlU(event) {
-            if (event.ctrlKey && event.key === 'u') {
-                event.preventDefault();
-            }
-        }
 
-        // Attach the event listener to the document
-        document.addEventListener('keydown', disableCtrlU);
-    </script>
-    <script>
-        // Disable right-click function
-        function disableRightClick(event) {
-            event.preventDefault();
-        }
+    <!--GIF PLAYING-->
 
-        // Attach the event listener to the document
-        document.addEventListener('contextmenu', disableRightClick);
-    </script>
-        <script>
-            // Function to disable Ctrl+Shift shortcuts
-            function disableCtrlShiftShortcuts(event) {
-                if (event.ctrlKey && event.shiftKey) {
-                    event.preventDefault();
-                }
-            }
+
+  </head>
+
+    <!--BODY-->
+  <body>
+      
+          <!--header-->
+          <header>
+            <p class="headertext2">999</p>                                                                                                  
+          </header>
+          
+          <div class="center">
+            <button onclick="window.open('https://www.helperguides.com/', '_blank')" class="btn purple">Website 1</button>
+
+            <button onclick="window.open('https://ubg999.site/', '_blank')" class="btn red">Website 2</button>
     
-            // Attach the event listener to the document
-            document.addEventListener('keydown', disableCtrlShiftShortcuts);
-        </script>
-    
+            <button onclick="window.open('https://qaizlet.com/', '_blank')" class="btn blue">Website 3</button>
+          </div>
+          
+       
 
-</head>
-<body>
-    <div class="container">
-
-        <button onclick="window.open('https://www.helperguides.com/', '_blank')" class="center-button">Website 1</button>
-
-        <button onclick="window.open('https://ubg999.site/', '_blank')" class="center-button">Website 2</button>
-
-        <button onclick="window.open('https://qaizlet.com/', '_blank')" class="center-button">Website 3</button>
-    
-    </div>
-</body>
+  </body>
+        <!--BODY-->
 </html>
